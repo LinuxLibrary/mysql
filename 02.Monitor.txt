@@ -1,0 +1,20 @@
+Monitor :
+---------
+
+Secure default accounts
+Note : There are 2 default accounts
+ 1. root (permits FULL access to all databases)
+ 2. anonymous (test database)
+
+Note : There are 3 default databases
+Note : Terminate ALL commands with a semicolon.
+Note : MySQL security is NOT contingent upon Linux/UNIX/Windows/OS security
+MySQL maintains its internal list of legitimate users/passwords(credentials)
+Credential info isstored in default 'mysql' database
+
+# netstat | grep 3306	----> to check MySQL is running.
+# mysql
+mysql> help ----> will get you the help page.
+mysql> show databases;	----> Will shows all databases installed orconfigured.
+
+Note : If you don't see the 'mysql' database, it mean that you are connected as a limited user (or) user who have some restrictions.
