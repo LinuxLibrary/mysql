@@ -1,0 +1,49 @@
+Auth Secure : 
+-------------
+Note : To reveal currently logged in MySQL user execute the following
+
+MySQL Authentication Notes:
+---------------------------
+ 1. Is premised on username and hostname. i.e. root@localhost
+ 2. In its default state, connections can ONLY be made from the localhost
+ 3. There are 3 primary ways to secure user accounts
+  a. Use 'mysqladmin' program
+   1. mysqladmin -u root password abc123
+  b. Use mysql terminal monitor and set password feature
+   1. set password for ''@'<HOSTNAME>'=password('abc123');
+
+Note : Secure both root and anonymous users.
+
+  
+mysql> select user(); ----> Let you know with which user you logged in.
+Note : If you are connected as anonymous user then it will shows the local user of the system with whom we logged in. MySQL maintains a command history which we can access using arrow keys.
+
+mysql> select now(); ----> Return current date and time.
+
+To check how many users connected to the database you need to be logged in as a privileged user. So open a new terminal and connect to the DB as a privileged user.
+
+# mysql -u root 
+mysql> select user();
+mysql> show databases;	----> Now you should be able to see the 'mysql' database.
+
+# mysql -u root -h <HOSTNAME>
+ERROR 1130 (00000): Host '<IP>' is not allowed to connect to this MySQL server.
+
+# mysql -u root@<IP> -h <HOSTNAME>
+In this way you may not get the above error.
+
+# mysqladmin -u root password abc123 
+
+
+mysql> use mysql;
+mysql> show tables;
+mysql> select * from user;
+mysql> desc user;
+mysql> select user,host from user;
+
+Note : Blank accounts in the 'mysql' DB 'user' table are really 'anonymous' accounts. This is where non-privileged Linux/UNIX/Windows/MySQL substitution occurs.
+
+mysql> set password for ''@'<HOSTNAME>'=password('abc123'); ----> For the anonymous user
+
+mysql> select user,host,password from user;
+mysql> set password for 'root'@'<HOSTNAME>'=password('abc123'); ----> For the root user
