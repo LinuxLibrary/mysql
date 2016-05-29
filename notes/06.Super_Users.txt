@@ -1,0 +1,17 @@
+Super Users : 
+-------------
+
+Note : % = wild card in SQL notation
+
+mysql > show grants;	---> Shows grants for the user currently logged in.
+
+Create additional MySQL users:
+1. Create a new Super-User, who can use MySQL from any system
+ a. GRANT ALL PRIVILEGES ON*.* TO 'arjun'@'%' IDENTIFIED BY 'xyz123' WITH GRANT OPTION;
+mysql > select user,host,password from user;
+2. Test local and remote connectivity.
+   Connect to the DB with the user created and verify it.
+mysql > show grants;
+
+If we want to permit every user from any host with full permissions then we can use the below but ont thing is it is very dangerous.
+mysql > grant all privileges on *.* to '%'@'%' identified by 'xyz123';

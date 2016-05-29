@@ -1,0 +1,48 @@
+Privileges :
+------------
+
+MySQL's Privileges scopes :
+
+DBMS (*.*)
+ -DBs (mysql,test) (*)
+  -Tables (user, host, db)
+   -Columns (select_priv, insert_priv, update_priv, delete_priv)
+   -Routine level
+
+Global Scope Level : mysql.user - Table
+Database Scope Level : mysql.host & mysql.db - Tables
+Table Scope Level : mysql.tables_priv - Table
+Column Scope Level : mysql.columns_priv - Table
+Routine Scope Level : mysql.procs_priv - Table
+ i.e. CREATE/ALTER/GRANT
+   
+mysql > use mysql;
+mysql > show talbes;
+
+Examine the below tables by viewing the tables.
+mysql > desc user;
+mysql > desc db;
+mysql > desc host;
+
+Examining the hierarchy of DBMS :
+Examine the Database and let us know how many DBs we have.
+mysql > show databases;
+ -DBs (mysql,test)
+ 
+Connect to one of the DBs
+mysql > use mysql;
+
+Within the Database examine how many tables we have.
+mysql > show tables;
+  -Tables (user, host, db)
+
+Within the Table examine how many columns we have.
+mysql > desc host;
+   -Columns (select_priv, insert_priv, update_priv, delete_priv)
+
+To know what privileges does the current user have
+mysql > show grants;
+
+For a specific user
+mysql > show grants for <user>@<hostname/IP>;
+mysql > select user, host, Create_priv from mysql.user;

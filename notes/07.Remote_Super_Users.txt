@@ -1,0 +1,18 @@
+Remote Super Users :
+--------------------
+Delete Users : use 'DROP USER user'
+Note : 'DROP USER' performs a GRANT TABLEs flush or 'FLUSH PRIVILEGES'
+
+mysql > drop user cofee ;
+mysql > drop user '';
+mysql > drop user '%';
+
+Task : Create users who are permitted remote access from '<remotehost>'
+1. Create a user called 'root'
+Note : Use FQDN when creating users for remote access and/or IP address
+Note : Define 2 users for failover or name resolution breakdown.
+
+mysql > grant all privileges on *.* to 'root'@'<remotehost>' identified by 'niceteeth';   ---> Provide the FQDN at the hostname.
+
+Go to the remote system and connect to mysql
+# mysql -h <localhost>

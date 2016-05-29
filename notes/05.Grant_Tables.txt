@@ -1,0 +1,18 @@
+Grant Tables:
+-------------
+
+GRANT TABLES (used to provide Auth Mechanism)
+Note : MySql performs 2 auth steps
+ Note : Grant tables are stored in system-provided 'mysql' DB
+ 1. arjun@tiltec - confirm whether user is permitted to log in to DBMS
+ 2. Confirm password
+ Grant tables are the following :
+  1. user, host, db
+  Note : Ancillary Grant tables include : columns_priv, tables_priv, columns_priv
+  
+mysql > desc db;
+mysql > select host,db,user from db;
+mysql > desc host;
+mysql > select host,db from host;
+mysql > desc user;
+mysql > select host,user,password,shutdown_priv from user;

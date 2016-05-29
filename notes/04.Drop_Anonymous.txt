@@ -1,0 +1,14 @@
+Drop Anonymous :
+----------------
+Increase DBMS security by removing anonymous accounts:
+1. Use 'DELETE' statement to remove anonymous accounts.
+'DELETE from mysql.user WHERE user = '';'
+2. Confirm that anonymous accounts have been removed
+4. Simply attempting to connect to MySQL using mysql client from localhost.
+5. Don't forget to execute 'FLUSH PRIVILEGES'
+
+mysql > DELETE from mysql.user WHERE user = '';
+mysql > FLUSH PRIVILEGES;
+mysql > select user,host,password from mysql.user;
+$ mysql -p
+Note: Now you should not be able to login as anonymous user.
