@@ -2,7 +2,8 @@ Privileges - REVOKE :
 ---------------------
 mysql > CREATE user nucguy3;
 mysql > GRANT ALL PRIVILEGES ON *.* TO nocguy3@dev1 IDENTIFIED by 'xyz123';
-Note: If we didn't create a password while creating the user by using CREATE USER the password for the user will be empty / null / no password
+Note: If we didn't create a password while creating the user by using CREATE USER 
+	the password for the user will be empty / null / no password
 
 REVOKE - allows us to revoke access
 Syntax mimics GRANT command

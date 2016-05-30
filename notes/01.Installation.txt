@@ -8,13 +8,13 @@ Download the Server, Client, Headers and Libraries & Shared Libraries
 3. Headers and libraries RPM Package (provides mysql support for 3rd party apps. i.e. Snort)
 4. Shared Libraries RPM Package (libraries that are common to mysql server and client programs)
 
-$ mkdir ~/temp										----->	Make a temp dir
+$ mkdir ~/temp				----->	Make a temp dir
 $ mv *.rpm ~/temp && cd ~/temp		----->	Move the downloaded rpms into the temp dir.
 
 Install the MySQL Server Package
-$ su																			----->	Be sure that you are root before starting the installation
-# rpm -ivh MySQL-server-standard-*.rpm		-----> Install the MySQL Server RPM
-# ps -ax | grep -i mysql									-----> Check whether it is running or not. If not start it.
+$ su					----->	Be sure that you are root before starting the installation
+# rpm -ivh MySQL-server-standard-*.rpm	-----> Install the MySQL Server RPM
+# ps -ax | grep -i mysql		-----> Check whether it is running or not. If not start it.
 
 Install the MySQL Client Package
-# rpm -ivh MySQL-client-standard-*.rpm		-----> Install the MySQL Client RPM
+# rpm -ivh MySQL-client-standard-*.rpm	-----> Install the MySQL Client RPM
