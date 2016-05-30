@@ -1,0 +1,29 @@
+Privileges - Grant :
+--------------------
+
+Task : Use the GRANT routine to create various users with various privileges.
+1. Create a user named 'arjun' with full privileges minus GRANT option.
+
+mysql > GRANT ALL on *.* to 'arjun'@'localhost' identified by 'xyz123';
+mysql > select user, host, Create_priv, Alert_priv from mysql.user;
+
+
+2. Create a user named 'nocguy' with no privileges.
+This can be used when we need to create number of users. So we can GRANT permissions for the created users later on. 
+
+mysql > GRANT USAGE on *.* to nocguy identified by 'xyz123';
+
+
+3. Create a user name 'nocguy1' with full privileges to test DB
+mysql > GRANT ALL on test.* to nocguy1 identified by 'xyz123';
+mysql > use mysql;
+mysql > select * from db;
+
+
+Now for the user 'arjun' we have all privileges other than GRANT. So we'll try to login as arjun and create another user.
+
+# mysql -u arjun -p
+mysql > GRANT ALL ON *.* to omkar identified by 'xyz123';
+
+We'll get an error as we don't have GRANT access for 'arjun'
+
