@@ -1,0 +1,15 @@
+SELECT *
+FROM albums
+JOIN artists ON albums.artist_id = artists.id;
+
+In SQL, joins are used to combine rows from two or more tables. The most common type of join in SQL is an inner join.
+
+An inner join will combine rows from different tables if the join condition is true. Let's look at the syntax to see how it works.
+
+SELECT * 	specifies the columns our result set will have. Here, we want to include every column in both tables.
+FROM albums 	specifies the first table we are querying.
+JOIN artists ON specifies the type of join we are going to use as well as the name of the second table. 
+		Here, we want to do an inner join and the second table we want to query is artists.
+albums.artist_id = artists.id is the join condition that describes how the two tables are related to each other. 
+Here, SQL uses the foreign key column artist_id in the albums table to match it with exactly one row in the artists table with the 
+same value in the id column. We know it will only match one row in the artists table because id is the PRIMARY KEY of artists.
